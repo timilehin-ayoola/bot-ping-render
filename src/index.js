@@ -3,7 +3,7 @@ const cron = require("node-cron");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const INTERVAL_MINUTES = parseInt(process.env.INTERVAL_MINUTES, 10) || 10;
+const INTERVAL_MINUTES = Math.max(1, parseInt(process.env.INTERVAL_MINUTES, 10) || 10);
 const URLS = (process.env.URLS || "").split(",").map((s) => s.trim()).filter(Boolean);
 
 let pingResults = [];

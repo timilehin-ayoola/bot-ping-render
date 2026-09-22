@@ -2,8 +2,8 @@ name: Render Ping Bot
 
 on:
   schedule:
-    # Every 14 minutes between 08:00 and 20:00 UTC
-    - cron: '*/13 5-16 * * *'
+    # Every 10 minutes, all day
+    - cron: '*/10 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -12,3 +12,9 @@ jobs:
     steps:
       - name: Ping Crypto Exchange Bot
         run: curl -I https://cryptoexchangebot.onrender.com
+
+      - name: Ping Firstlight Frontend
+        run: curl -I https://firstlight-web.onrender.com
+
+      - name: Ping Firstlight API
+        run: curl -I https://firstlighthq.onrender.com
